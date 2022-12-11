@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeCrud.Common", "Empl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeCrud.Busniess", "Busniess\EmployeeCrud.Busniess\EmployeeCrud.Busniess.csproj", "{545C312B-ECE6-4EBF-BFD6-985CE8778ACB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeCrud.APIGateway", "APIGateway\EmployeeCrud.APIGateway\EmployeeCrud.APIGateway.csproj", "{DBE07DB7-ACEC-4655-B641-89AAD1F7F3D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeCrud.APIGateway", "APIGateway\EmployeeCrud.APIGateway\EmployeeCrud.APIGateway.csproj", "{DBE07DB7-ACEC-4655-B641-89AAD1F7F3D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeCrud.Test", "Tests\EmployeeCrud.Test\EmployeeCrud.Test.csproj", "{B67F7DA7-EDF7-4D78-A94E-806C269CACD4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{DBE07DB7-ACEC-4655-B641-89AAD1F7F3D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBE07DB7-ACEC-4655-B641-89AAD1F7F3D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBE07DB7-ACEC-4655-B641-89AAD1F7F3D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B67F7DA7-EDF7-4D78-A94E-806C269CACD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B67F7DA7-EDF7-4D78-A94E-806C269CACD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B67F7DA7-EDF7-4D78-A94E-806C269CACD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B67F7DA7-EDF7-4D78-A94E-806C269CACD4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -7,15 +7,16 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeCrud.API.Controllers
 {
+
     [Route("api/[controller]")]
     [ApiController]
     public class EmployeeController : ControllerBase
     {
-        private readonly ILogger<AdminController> _logger;
+        private readonly ILogger<EmployeeController> _logger;
         private readonly IEmployeeService _employeeService;
 
         private readonly ITokenAuth _jwtAuth;
-        public EmployeeController(ILogger<AdminController> logger, IEmployeeService employeeService, ITokenAuth jwtAuth)
+        public EmployeeController(ILogger<EmployeeController> logger, IEmployeeService employeeService, ITokenAuth jwtAuth)
         {
             _logger = logger;
             _employeeService = employeeService;
