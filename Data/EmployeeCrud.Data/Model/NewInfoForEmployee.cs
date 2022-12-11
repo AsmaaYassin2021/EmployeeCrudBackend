@@ -4,6 +4,6 @@ namespace EmployeeCrud.Data.Model
 {
     public class NewInfoForEmployee : Employee, INewInfoForIEmployee
     {
-        public string Address { get; set; }
+        public string Address { get; set; } = null!;
     }
 }
