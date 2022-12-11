@@ -1,6 +1,6 @@
 using EmployeeCrud.Common.Contracts;
 
-namespace EventReg.Common
+namespace EmployeeCrud.Common
 {
     public interface IEmployeeService
     {
