@@ -1,6 +1,7 @@
 ﻿using EmployeeCrud.API.Extensions;
 using EmployeeCrud.DB;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 namespace EmployeeCrud.API
 {
@@ -49,7 +50,7 @@ namespace EmployeeCrud.API
 
             app.UseAuthorization();
 
-            // app.UseSerilogRequestLogging();
+            app.UseSerilogRequestLogging();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
