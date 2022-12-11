@@ -3,12 +3,11 @@ using EmployeeCrud.API.Authentication;
 using EmployeeCrud.API.Model;
 using EmployeeCrud.API.Wrappers;
 using EmployeeCrud.Common;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeCrud.API.Controllers
 {
-    [Route("api/Admin")]
+    [Route("api/[controller]")]
     [ApiController]
     public class AdminController : ControllerBase
     {
@@ -24,8 +23,8 @@ namespace EmployeeCrud.API.Controllers
             _jwtAuth = jwtAuth;
         }
 
-        [AllowAnonymous]
-        [HttpPost("authentication")]
+        //[AllowAnonymous]
+        [HttpPost]
         public async Task<IActionResult> Authentication([FromBody] User userCredential)
         {
             _logger.LogInformation($" Authentication for the user." + " " + userCredential.UserName);

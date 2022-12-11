@@ -23,7 +23,10 @@ namespace EmployeeCrud.API
                    databaseConnectionString
                ), ServiceLifetime.Scoped
            );
-
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CORSPolicy", builder => builder.AllowAnyMethod().AllowAnyHeader().AllowCredentials().SetIsOriginAllowed((hosts) => true));
+            });
             services.AddMemoryCache();
             services.AddHttpContextAccessor();
             services.AddControllers().AddNewtonsoftJson();
@@ -34,19 +37,28 @@ namespace EmployeeCrud.API
         }
         public void SetupMiddlewares(WebApplication app, IWebHostEnvironment env)
         {
-            if (!app.Environment.IsDevelopment())
+            if (env.IsDevelopment())
             {
-                app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
+
+                app.UseDeveloperExceptionPage();
             }
+            app.UseCors("CORSPolicy");
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            app.UseAuthentication();
             app.UseRouting();
+
             app.UseAuthorization();
-            app.MapRazorPages();
+
+            // app.UseSerilogRequestLogging();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+            app.UseSwagger();
+            app.UseSwaggerUI(options => options.SwaggerEndpoint("/swagger/v2/swagger.json", "PlaceInfo Services"));
             app.Run();
         }
+
     }
 }
 

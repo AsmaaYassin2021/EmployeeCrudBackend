@@ -14,6 +14,10 @@ namespace EmployeeCrud.API.Model
             Phone = currentEmployee.Phone;
             JobTitle = currentEmployee.JobTitle;
         }
+        public Employee()
+        {
+
+        }
         [DataMember(Name = "id")]
         public int Id { get; set; }
         [DataMember(Name = "firstName")]

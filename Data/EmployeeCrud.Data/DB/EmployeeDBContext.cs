@@ -10,8 +10,13 @@ namespace EmployeeCrud.DB
 
 
         }
+        public EmployeeDBContext() : base() { }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<User> Users { get; set; }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Employee>().ToTable("Employee").HasKey(m => m.Id);

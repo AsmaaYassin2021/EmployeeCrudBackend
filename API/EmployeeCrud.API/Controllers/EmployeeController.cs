@@ -39,7 +39,24 @@ namespace EmployeeCrud.API.Controllers
 
             }
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetByID(int id)
 
+        {
+            try
+            {
+                _logger.LogInformation($"Returned all employess from the memory database.");
+                IEmployee currentEmployee = await _employeeService.GetEmployeeById(id);
+                return Ok(Response<IEmployee>.Success(currentEmployee));
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Something went wrong inside the GetByID action: {ex}");
+                return StatusCode(500, Response<string>.Fail("Error retrieving data from the memory database"));
+
+            }
+        }
         [HttpPost]
         public async Task<IActionResult> AddEmployee([FromBody] Employee employee)
         {

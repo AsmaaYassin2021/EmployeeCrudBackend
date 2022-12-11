@@ -8,7 +8,10 @@ namespace EmployeeCrud.Data.Model
     {
         public Employee(IEmployee employee)
         {
-
+            FirstName = employee.FirstName;
+            LastName = employee.LastName;
+            Phone = employee.Phone;
+            JobTitle = employee.JobTitle;
         }
         public Employee()
         {
@@ -17,11 +20,11 @@ namespace EmployeeCrud.Data.Model
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 
-        public int Id { get; set; } = 0!;
-        public string FirstName { get; set; } = null!;
-        public string LastName { get; set; } = null!;
-        public string Phone { get; set; } = null!;
-        public string JobTitle { get; set; } = null!;
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Phone { get; set; }
+        public string JobTitle { get; set; }
 
         internal void UpdateProperties(IEmployee currentEmployee)
         {

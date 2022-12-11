@@ -25,6 +25,10 @@ namespace EmployeeCrud.Busniess.Service
         {
             return await _employeeRepository.GetEmployees();
         }
+        public async Task<IEmployee> GetEmployeeById(int id)
+        {
+            return await _employeeRepository.GetEmployeeById(id);
+        }
         public async Task<bool> AddEmployee(IEmployee employee)
         {
             return await _employeeRepository.AddEmployee(employee);

@@ -1,17 +1,37 @@
 {
   "GlobalConfiguration": {
-    "BaseUrl": "https://localhost:7283"
+    "BaseUrl": "https://localhost:7205",
+    "RequestIdKey": "X-Correlation-Id"
   },
   "Routes": [
     {
-      "UpstreamPathTemplate": "/gateway/employee",
+      "UpstreamPathTemplate": "/gateway/admin",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamPathTemplate": "/api/Admin",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7282
+        }
+      ],
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "3s",
+        "PeriodTimespan": 1,
+        "Limit": 1
+      }
+    
+    },
+     { "UpstreamPathTemplate": "/gateway/employee",
       "UpstreamHttpMethod": [ "Get" ],
       "DownstreamPathTemplate": "/api/employee",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7233
+          "Port": 7282
         }
       ]
     },
@@ -23,7 +43,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7233
+          "Port": 7282
         }
       ]
     },
@@ -35,9 +55,13 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7233
+          "Port": 7282
         }
       ]
     }
   ]
+  
+   
+  
+
 }

@@ -19,25 +19,35 @@ namespace EmployeeCrud.Data.Repository
         {
             return await _context.Employees.ToListAsync();
         }
+        public async Task<IEmployee> GetEmployeeById(int id)
+        {
+            return await _context.Employees.FirstOrDefaultAsync(e => e.Id == id);
+        }
 
         public async Task<bool> AddEmployee(IEmployee employee)
         {
-
-            var isSuccessed = false;
-            _context.Employees.Add(new Employee(employee));
-            int returnNumber = await _context.SaveChangesAsync();
-            if (returnNumber == 1)
-                isSuccessed = true;
-            return isSuccessed;
+            try
+            {
+                var isSuccessed = false;
+                employee.FirstName = "gg";
+                _context.Employees.Add(new Employee(employee));
+                int returnNumber = await _context.SaveChangesAsync();
+                if (returnNumber == 1)
+                    isSuccessed = true;
+                return isSuccessed;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
         public async Task<bool> UpdateEmployee(IEmployee updatedEmployee)
         {
             var isSuccessed = false;
-            var oldEmployee = _context.Employees.SingleOrDefaultAsync(i => i.Id == updatedEmployee.Id);
+            var oldEmployee = await _context.Employees.SingleOrDefaultAsync(i => i.Id == updatedEmployee.Id);
             if (oldEmployee == null)
                 return isSuccessed;
-
-            //   (await oldEmployee).Result.UpdateProperties(updatedEmployee);
+            oldEmployee.UpdateProperties(updatedEmployee);
             int returnNumber = await _context.SaveChangesAsync();
 
             if (returnNumber == 1)

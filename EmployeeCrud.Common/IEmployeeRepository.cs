@@ -8,6 +8,6 @@ namespace EmployeeCrud.Common
         Task<bool> AddEmployee(IEmployee employee);
         Task<bool> UpdateEmployee(IEmployee updatedEmployee);
         Task<bool> DeleteEmployee(int deletedEmployeeID);
-
+        Task<IEmployee> GetEmployeeById(int id);
     }
 }
